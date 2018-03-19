@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<head>
-		<meta charset="UTF-8">
-		<title>Online Petition Manager</title>
-		<link rel="stylesheet" href="./PagesCSS/home.css" type="text/css">
+	    <meta charset="UTF-8">
+	    <title>Online Petition Manager</title>
+	    <link rel="stylesheet" href="./PagesCSS/home.css" type="text/css">
+	    <link rel="stylesheet" href="./PagesCSS/general.css" type="text/css">
+	    <script src="./JavaScript/home.js" type="text/javascript"></script>
 	</head>
 
 	<body>
-<!--***Header*** -->
-		<div id="header">
-			<h1>OPeM</h1>
-			<form method="get" action="./Pages HTML/register.html">
-    			<button class="btn" id="r" type="submit">Register</button>
-			</form>
-			<form method="get" action="./Pages HTML/login.html">
-				<button class="btn" id="l" type="submit" value="Submit">Login</button>
-			</form>
+		<!--***Header*** -->
+		<div class="header-container">
+		    <div class="header-logo">
+		        <h1>OPeM</h1>
+		    </div>
+		    <div class="btn-header">
+		        <a class="btn-action" href="./PagesHTML/login.html">Login</a>
+		        <a class="btn-action" href="./PagesHTML/register.html">Register</a>
+		    </div>
 		</div>
 
-<!--***Content***-->
-		<div class="content">
+		<!--***Content***-->
+		<div class="cont">
+			<div class="content-header">
+				<a class="btn-actionH"  href="home.html">Cele mai populare petitii</a>
+				<a class="btn-actionH"  href="home.html">Cele mai recente petitii</a>
+		        <a class="btn-actionH"  href="home.html">Petitii semnate</a>
+			</div>
 				
 		</div>
 
-<!--***Footer**-->
+		<!--***Footer**-->
 		<div class="footer">
-  			&copy;  2018 OPeM TW Project.  All Rights Reserved.
-    </div>
+		    &copy; 2018 OPeM TW Project. All Rights Reserved.
+		</div>
 	</body>
 </html>

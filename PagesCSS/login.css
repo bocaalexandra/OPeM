@@ -7,9 +7,10 @@
         background-color: #E9E7DA;
 }
 #inner{
-        width: 50%;
-        height: 74%;
-        top: 11%;
+        width: 700px;
+        height: 500px;
+        top: 50px;
+        bottom: 50px;
         margin: 0 auto;
         position: relative;
         background: #CDA34F;
