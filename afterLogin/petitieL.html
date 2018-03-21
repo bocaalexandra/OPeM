@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Online Petition Manager</title>
+    <link rel="stylesheet" href="../PagesCSS/petitie.css" type="text/css">
+    <link rel="stylesheet" href="../PagesCSS/general.css" type="text/css">
+
+</head>
+<body>
+<!--<div id=outer>-->
+ <div class="header-container">
+            <div class="header-logo">
+                <h1>OPeM</h1>
+            </div>
+            <div class="btn-header">
+                <h3>andreiclim20</h3>
+                <a class="btn-action" href="home.html">Creaza Petitie</a>
+                <a class="btn-action" href="./despreL.html">Despre</a>
+                <a class="btn-action" href="./ajutorL.html">Ajutor</a>
+            </div>
+        </div>
+    <div id=inner>
+        <form action="#">
+            <div class="container">
+                <h1>Creeaza o noua petitie !</h1>
+                <p>Pentru a afla regulile si conditiile crearii unei noi petitii va rugam sa cititi pagina de regulament. <br>
+                Pentru alte informatii nu ezitati sa ne contactati.
+                </p>
+                <!-- define a thematic change in the content -->
+                <hr>
+
+                <label for="nume"><b>Titlu petitie</b></label>
+                <input type="text" placeholder="Introduceti un titlu sugestiv !" name="nume" id="nume" required>
+
+                <label for="autor"><b>Autorul petitiei</b></label>
+                <input type="text" placeholder="Introduceti numele dumneavostra." name="autor" id="autor" required>
+
+                <label for="pet-text"><b>Text</b></label>
+                <input type="text" placeholder="Introduceti textul petitei dumneavoastra. Maxim 1000 de caractere." name="pet-text" maxlength="1000" id="pet-text" required>
+
+                <div class="clearfix">
+                    <button type="submit" class="signupbtn">Creeaza petitia!</button>
+                    <button type="button" class="cancelbtn">Anuleaza</button>
+                </div>
+            </div>
+        </form>
+    </div>
+<!--</div>-->
+
+<!--***Footer**-->
+<div class="footer">
+    &copy; 2018 OPeM TW Project. All Rights Reserved.
+</div>
+</body>
+</html>
