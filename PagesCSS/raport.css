@@ -1,0 +1,85 @@
+.first{
+	background-color: #CDA34F;
+	width:49%;
+	height:700px;
+	float:left;
+	padding-bottom: 2%;
+}
+
+.second{
+	background-color: #CDA34F;
+	width:49%;
+	height:700px;
+	overflow: hidden;
+	padding-top: 2%;
+	padding-right: 0.5%;
+}
+.first, .second{
+	margin-top: 0.5%;
+	margin-left: 0.3%;
+	margin-right: 0.5%;
+	border: 1px solid black;
+	position: relative;
+	border-radius: 8px;
+
+}
+
+p,h3{
+	padding-left:5%;
+	padding-top: 3.8%;
+	padding-bottom: 3.8%;
+}
+
+#mod, #edit, #del {
+    background-color: #373F27;
+    color: #E9E7DA;
+    padding: 14px 20px;
+    margin: 15px 0;
+    border: none;
+    cursor: pointer;
+    width: 32%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity:0.6;
+}
+
+p{
+	font-weight: bold;
+}
+
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 30px;
+}
+
+table{
+	padding-left: 90px;
+	padding-top: 60px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.pagination {
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-left: 12%;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 10px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
