@@ -1,0 +1,94 @@
+.first{
+	background-color: #CDA34F;
+	width:49%;
+	height:700px;
+	float:left;
+	padding-bottom: 2%;
+}
+
+.second{
+	background-color: #CDA34F;
+	width:49%;
+	height:100%;
+	overflow: hidden;
+	padding-top: 2%;
+	padding-right: 0.5%;
+}
+
+.first, .second{
+	margin-top: 0.5%;
+	margin-left: 0.3%;
+	margin-right: 0.5%;
+	border: 1px solid black;
+	position: relative;
+	border-radius: 8px;
+	
+}
+
+p,h3{
+	padding-left:5%;
+	padding-top: 3.8%;
+	padding-bottom: 3.8%;
+}
+
+select, input[type=text], input[type=email] {
+    width: 70%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    margin-left: 8%;
+}
+
+select, input[type=text]:focus, input[type=email]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+label {
+    color: black;
+    padding-left: 8%;
+}
+
+.semneaza {
+    background-color: #373F27;
+    color: #E9E7DA;
+    padding: 14px 20px;
+ 
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    width: 50%;
+    margin-left:25%;
+}
+
+hr{
+	height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+#share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+margin-left: 46.5%;
+
+}
+
+h5{
+	text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+   #first { 
+    float: none;
+    margin-right:0;
+    width:1000px;
+    border:0;
+    border-bottom:2px solid #000;    
+  }
+}
