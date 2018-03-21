@@ -9,14 +9,16 @@
 </head>
 <body>
     <div class="header-container">
-        <div class="header-logo">
-            <h1>OPeM</h1>
-        </div>
-        <div class="btn-header">
-            <a class="btn-action" href="./PagesHTML/petitie.html">Creeaza o petitie</a>
-            <a class="btn-action" href="login.html">Login</a>
-            <a class="btn-action" href="register.html">Register</a>
-        </div>
+            <div class="header-logo">
+                <h1>OPeM</h1>
+            </div>
+            <div class="btn-header">
+                <a class="btn-action" href="./PagesHTML/login.html">Login</a>
+                <a class="btn-action" href="./PagesHTML/register.html">Register</a>
+                <a class="btn-action" href="home.html">Creaza Petitie</a>
+                <a class="btn-action" href="./PagesHTML/despre.html">Despre</a>
+                <a class="btn-action" href="./PagesHTML/ajutor.html">Ajutor</a>
+            </div>
     </div>
     <div id=inner>
         <form action="#">
@@ -27,13 +29,13 @@
                 <hr>
 
                 <label for="email"><b>Email*</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+                <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
                 <label for="psw"><b>Password*</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
                 <label for="psw-repeat"><b>Repeat Password*</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
 
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
