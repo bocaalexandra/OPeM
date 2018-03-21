@@ -1,0 +1,23 @@
+html{
+    background-color: #E9E7DA;
+}
+
+.cont {
+    background-color: #CDA34F;
+    margin-top: 15px;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-bottom: -11px;
+    
+}
+
+h1{
+	padding-left: 5%;
+	padding-top: 1%;
+}
+
+h2{
+	padding-left: 10%;
+	padding-right: 3%;
+	padding-bottom: 1%;
+}
