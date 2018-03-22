@@ -97,12 +97,64 @@ tr:nth-child(even) {
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
 
+
+#moto h1{
+    align: center;
+}
+
 table{
     margin-right: 5%;
     margin-left: 5%;
 }
 table td{
 }
+
+
+@media only screen and (min-width: 2000px) {
+  .cont h1{
+    font-size: 55px;
+  }
+
+  .cont h2{
+    font-size: 30px;
+  }
+
+  .cont h3{
+    font-size: 26px;
+  }
+
+  input[type=text] {
+    font-size: 30px;
+  }
+
+  .search-container button{
+    font-size: 30px;
+  }
+
+  .btn-actionH{
+    font-size: 30px;
+  }
+
+  td,th{
+    font-size:28px;
+  }
+
+}
+
+
+@media only screen and (max-width: 850px) {
+  .cont{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 616px){
+  .cont{
+    min-width: 900px;
+    min-height: 1490px;
+  }
+}
+
 
 
 @media only screen and (max-width: 1440px) {

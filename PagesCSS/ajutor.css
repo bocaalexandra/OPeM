@@ -17,15 +17,6 @@ html{
 	padding-bottom: 2%;
 }
 
-h2{
-    padding-top: 1%;
-    text-align: center;
-}
-
-object{
-    width:90% ;
-    height:728px ;
-}
 
 @media only screen and (min-width: 2000px) {
     h1{
