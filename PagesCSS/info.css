@@ -3,7 +3,7 @@
 	width:49%;
 	height:700px;
 	float:left;
-	padding-bottom: 2%;
+	padding-bottom: 4%;
 }
 
 .second{
@@ -13,22 +13,27 @@
 	overflow: hidden;
 	padding-top: 2%;
 	padding-right: 0.5%;
+    padding-bottom: 2%;
+
 }
 
 .first, .second{
-	margin-top: 0.5%;
+	margin-top: 50px;
 	margin-left: 0.3%;
 	margin-right: 0.5%;
 	border: 1px solid black;
 	position: relative;
 	border-radius: 8px;
+
+    margin-bottom: 61px;
+    
 	
 }
 
 p,h3{
 	padding-left:5%;
-	padding-top: 3.8%;
-	padding-bottom: 3.8%;
+	padding-top: 2%;
+	padding-bottom: 2%;
 }
 
 select, input[type=text], input[type=email] {
@@ -82,6 +87,26 @@ margin-left: 46.5%;
 h5{
 	text-align: center;
 }
+
+
+@media only screen and (min-width: 2000px) {
+    .first h3{
+        font-size: 25px;
+    }
+
+    h2{
+        font-size: 30px;
+    }
+}
+
+
+
+@media only screen and (max-width: 850px) {
+    .first,.second{
+        min-width: 800px;
+    }
+}
+
 
 @media screen and (max-width: 400px) {
    #first { 

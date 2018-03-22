@@ -17,11 +17,16 @@ body{
     margin-left: 60px;
 
 }
-.header-logo h1 {
+.header-logo h1{
     font-family: Arial, Tahoma, sans-serif;
     color: #E9E7DA;
     font-size: 20px;
-    margin:18px 0;
+    margin:18px 0px;
+}
+
+.header-logo h1 a{
+    color: #E9E7DA;
+    text-decoration: none;
 }
 
 .btn-header h3 {
@@ -86,14 +91,26 @@ body{
 }
 
 
-
-@media only screen and (max-width: 850px) {
-    body{
-        width: 930px;
+@media only screen and (min-width: 2000px) {
+    
+    .header-container{
+        height: 110px;
+    }
+    .header-logo h1{
+        font-size: 50px;
     }
 
+    .btn-action{
+        margin-top: 30px;
+        font-size:30px;
+    }
+}
+
+
+@media only screen and (max-width: 850px) {
+
     .header-container{
-        height: 100px;
+        height: 75px;
         width: 930px;
     }
     .btn-header{
@@ -102,6 +119,11 @@ body{
         height: 5px;
         width: 800px;
     }
+
+    .footer{
+        margin-top: 4%;
+        width: 930px;
+    }
 }
 
 @media only screen and (max-width: : 374px)
@@ -109,4 +131,10 @@ body{
     .header-container{
         width: 5000px;
     }
+
+   .footer{
+        margin-top: 4%;
+    }
 }
+
+
