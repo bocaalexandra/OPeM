@@ -97,11 +97,6 @@ tr:nth-child(even) {
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
 
-
-#moto h1{
-    align: center;
-}
-
 table{
     margin-right: 5%;
     margin-left: 5%;
