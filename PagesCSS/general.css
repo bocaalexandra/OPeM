@@ -126,12 +126,9 @@ body{
     }
 }
 
-@media only screen and (max-width: : 374px)
+@media only screen and (max-width: 374px)
 {
-    .header-container{
-        width: 5000px;
-    }
-
+    
    .footer{
         margin-top: 4%;
     }

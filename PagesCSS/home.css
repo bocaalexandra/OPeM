@@ -49,6 +49,14 @@ html{
 
 }
 
+.cont h1, .cont h2, .cont h3{
+    text-align: center;
+}
+
+.cont h1{
+    padding-top: 15px;
+}
+
 .search-container button:hover {
   background: #ccc;
 }
@@ -88,11 +96,6 @@ tr:nth-child(even) {
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
-
-
-#moto h1{
-    align: center;
-}
 
 table{
     margin-right: 5%;
