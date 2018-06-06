@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bocaalexandra/OPeM/issues"
   },
-  "homepage": "https://github.com/bocaalexandra/OPeM#readme"
+  "homepage": "https://github.com/bocaalexandra/OPeM#readme",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  }
 }
