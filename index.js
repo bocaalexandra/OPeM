@@ -25,32 +25,40 @@ const server = http.createServer((req, res) => {
             //LOAD JS FILE
             if (req.url.match(/.js$/)) {
                 let jsPath = path.join(__dirname, "", req.url);
-
                 let jsReadStream = fs.createReadStream(jsPath, "UTF-8");
                 res.status = 200;
                 res.setHeader("Content-Type", "application/javascript");
 
                 jsReadStream.pipe(res);
             }
+
             if (req.url === "/") {
                 //GET HOME PAGE
-                fs.readFile("home.html", "UTF-8", (err, html) => {
-                    res.statusCode = 200;
-                    res.setHeader("Content-Type", "text/html");
-                    res.end(html);
-                })
+                make_get_for_pages(res,"home.html")
             }
             else if (req.url === "/login.html") {
                 //GET LOGIN PAGE
-                fs.readFile("./PagesHTML/login.html", "UTF-8", (err, html) => {
-                    res.statusCode = 200;
-                    res.setHeader("Content-Type", "text/html");
-                    res.end(html);
-                })
+                make_get_for_pages(res,"./PagesHTML/login.html")
+            }
+            else if(req.url === "/register.html"){
+                //GET REGISTER PAGE
+                make_get_for_pages(res,"./PagesHTML/register.html")
+            }
+            else if(req.url === "/creazaPetitie.html"){
+                //GET CREATE PETITIE PAGE
+                make_get_for_pages(res,"./PagesHTML/petitie.html")
+            }
+            else if(req.url === "/ajutor.html"){
+                //GET AJUTOR PAGE
+                make_get_for_pages(res,"./PagesHTML/ajutor.html")
+            }
+            else if(req.url === "/despre.html"){
+                //GET DESPRE PAGE
+                make_get_for_pages(res,"./PagesHTML/despre.html")
             }
         }
         catch (err) {
-            res.end(err);
+            res.end("err");
         }
 
     }
@@ -59,7 +67,7 @@ const server = http.createServer((req, res) => {
             get_data(req)
                 .then(doLogin)
                 .then(user => {
-                    if (user) {
+                    if (user.length === 0) {
                         console.log(user)
                         res.statusCode = 404
                         res.setHeader("Content-type", "text/plain")
@@ -72,11 +80,11 @@ const server = http.createServer((req, res) => {
                         res.statusCode = 200;
                         res.setHeader("Content-type", "text/plain")
                         let output = JSON.stringify({
-                            response : "succes"
+                            response : "succes",
+                            userId : user[0].id
                         })
                         res.end(output)
                     }
-
                 })
                 .catch((err) => { console.log(err) })
 
@@ -103,5 +111,14 @@ function get_data(req) {
         req.on('error', () => {
             reject();
         })
+    })
+}
+
+
+function make_get_for_pages(res,path){
+    fs.readFile(path, "UTF-8", (err, html) => {
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/html");
+        res.end(html);
     })
 }

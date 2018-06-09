@@ -1,9 +1,26 @@
+var firstLogin = true;
+
 document.addEventListener('DOMContentLoaded', function () {
 	document.querySelector('#loginButton').addEventListener('click', function () {
-		if (login(document.getElementById('email').value, document.getElementById('psw').value))
-			console.log("succes")
-		else
-			console.log("fail");
+		login(document.getElementById('email').value, document.getElementById('psw').value)
+			.then((data) => {
+				if (data.status === 200) {
+					window.location = "http://localhost:3000/" + data.userId;
+				}
+				else {
+					if(firstLogin)
+					{
+						let parent = document.getElementById('login')
+						var span = document.createElement('loginFail');
+						span.innerHTML = 'Login Failed. Please try again.';
+						span.className = 'failLogin';
+						span.style.color = 'red';
+						span.appendChild(document.createElement("br"))
+						parent.insertBefore(span, parent.firstChild)
+						firstLogin = false
+					}
+				}
+			})
 	})
 })
 
@@ -13,14 +30,11 @@ function login(email, pasw) {
 		"email": email,
 		"password": pasw
 	}
-	sendRequestLogin(obj)
+	return sendRequestLogin(obj)
 		.then(handleResponse)
-		.then(parseData)
 		.catch((err) => {
-			console.log(err)
 			return undefined
 		})
-	return false;
 }
 
 
@@ -34,16 +48,13 @@ function sendRequestLogin(obj) {
 	})
 }
 
-function parseData(data){
-	console.log(data)
-	if(data["response"]==="succes")
-		return true;
-	else
-		return false;
-}
-
-function handleResponse(resp){
-	return new Promise((resolve,reject)=>{
-		if(resp.status === 200)
-	})
+function handleResponse(resp) {
+	return resp.json()
+		.then(userData => {
+			userData.status = resp.status;
+			return userData
+		})
+		.catch(err => {
+			reject();
+		})
 }
