@@ -59,6 +59,10 @@ button:hover {
     opacity:0.6;
 }
 
+.reg {
+    margin-top: 40px;
+}
+
 .cancelbtn {
     color: #E9E7DA;
     padding: 14px 20px;
@@ -73,8 +77,8 @@ button:hover {
 
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
+  float: right;
+  width: 40%;
   margin-left:25%; 
 }
 
