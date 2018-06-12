@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 
 let doLogin = require("./JavaScript/doLogin")
+let doRegister = require("./JavaScript/doRegister")
+let { creazaPetitie, deletePetitie, getPetitie, semneazaPetitie } = require("./JavaScript/petitieUtiliti")
 
 const hostname = "localhost";
 const port = 3000;
@@ -34,27 +36,27 @@ const server = http.createServer((req, res) => {
 
             if (req.url === "/") {
                 //GET HOME PAGE
-                make_get_for_pages(res,"home.html")
+                make_get_for_pages(res, "home.html")
             }
             else if (req.url === "/login.html") {
                 //GET LOGIN PAGE
-                make_get_for_pages(res,"./PagesHTML/login.html")
+                make_get_for_pages(res, "./PagesHTML/login.html")
             }
-            else if(req.url === "/register.html"){
+            else if (req.url === "/register.html") {
                 //GET REGISTER PAGE
-                make_get_for_pages(res,"./PagesHTML/register.html")
+                make_get_for_pages(res, "./PagesHTML/register.html")
             }
-            else if(req.url === "/creazaPetitie.html"){
+            else if (req.url === "/creazaPetitie.html") {
                 //GET CREATE PETITIE PAGE
-                make_get_for_pages(res,"./PagesHTML/petitie.html")
+                make_get_for_pages(res, "./PagesHTML/petitie.html")
             }
-            else if(req.url === "/ajutor.html"){
+            else if (req.url === "/ajutor.html") {
                 //GET AJUTOR PAGE
-                make_get_for_pages(res,"./PagesHTML/ajutor.html")
+                make_get_for_pages(res, "./PagesHTML/ajutor.html")
             }
-            else if(req.url === "/despre.html"){
+            else if (req.url === "/despre.html") {
                 //GET DESPRE PAGE
-                make_get_for_pages(res,"./PagesHTML/despre.html")
+                make_get_for_pages(res, "./PagesHTML/despre.html")
             }
         }
         catch (err) {
@@ -66,30 +68,40 @@ const server = http.createServer((req, res) => {
         if (req.url === "/login") {
             get_data(req)
                 .then(doLogin)
-                .then(user => {
-                    if (user.length === 0) {
-                        console.log(user)
-                        res.statusCode = 404
-                        res.setHeader("Content-type", "text/plain")
-                        let output = JSON.stringify({
-                            response : "fail"
-                        })
-                        res.end(output)
-                    }
-                    else {
-                        res.statusCode = 200;
-                        res.setHeader("Content-type", "text/plain")
-                        let output = JSON.stringify({
-                            response : "succes",
-                            userId : user[0].id
-                        })
-                        res.end(output)
-                    }
-                })
+                .then(sendResponse.bind(null, res))
                 .catch((err) => { console.log(err) })
 
         }
-
+        else if (req.url === "/register") {
+            get_data(req)
+                .then(doRegister)
+                .then(sendResponse.bind(null, res))
+                .catch((err) => { console.log(err) })
+        }
+        else if (req.url === "/creazaPetitie") {
+            get_data(req)
+                .then(creazaPetitie)
+                .then(sendResponse.bind(null, res))
+                .catch((err) => { console.log(err) })
+        }
+        else if (req.url === "/deletePetitie") {
+            get_data(req)
+                .then(deletePetitie)
+                .then(sendResponse.bind(null, res))
+                .catch((err) => { console.log(err) })
+        }
+        else if (req.url === "/getPetitie") {
+            get_data(req)
+                .then(getPetitie)
+                .then(sendResponse.bind(null, res))
+                .catch((err) => { console.log(err) })
+        }
+        else if(req.url === "/semneazaPetitie"){
+            get_data(req)
+                .then(semneazaPetitie)
+                .then(sendResponse.bind(null, res))
+                .catch((err) => { console.log(err) })
+        }
     }
 });
 
@@ -115,10 +127,32 @@ function get_data(req) {
 }
 
 
-function make_get_for_pages(res,path){
+function make_get_for_pages(res, path) {
     fs.readFile(path, "UTF-8", (err, html) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "text/html");
         res.end(html);
     })
+}
+
+
+function sendResponse(res, data) {
+    if (data.length === 0) {
+        console.log(data)
+        res.statusCode = 404
+        res.setHeader("Content-type", "text/plain")
+        let output = JSON.stringify({
+            response: "fail"
+        })
+        res.end(output)
+    }
+    else {
+        res.statusCode = 200;
+        res.setHeader("Content-type", "text/plain")
+        let output = JSON.stringify({
+            response: "succes",
+            message: JSON.parse(data)
+        })
+        res.end(output)
+    }
 }
