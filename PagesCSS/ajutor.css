@@ -17,6 +17,10 @@ html{
 	padding-bottom: 2%;
 }
 
+h1{
+    text-align: center;
+}
+
 h2{
     padding-top: 1%;
     text-align: center;

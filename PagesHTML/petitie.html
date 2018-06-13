@@ -11,16 +11,16 @@
 <body>
 <!--<div id=outer>-->
    <div class="header-container">
-    <div class="header-logo">
-        <h1><a href="http://localhost:3000/">OPeM</a></h1>
-    </div>
+            <div class="header-logo">
+                <h1><a href="../home.html">OPeM</a></h1>
+            </div>
             <div class="btn-header">
-		        <a class="btn-action" href="http://localhost:3000/login.html"id="loginPage">Login</a>
-		        <a class="btn-action" href="http://localhost:3000/register.html">Register</a>
-		        <a class="btn-action" href="http://localhost:3000/creazaPetitie.html">Creaza Petitie</a>
-		        <a class="btn-action" href="http://localhost:3000/despre.html">Despre</a>
-		        <a class="btn-action" href="http://localhost:3000/ajutor.html">Ajutor</a>
-		    </div>
+                <a class="btn-action" href="../PagesHTML/login.html">Login</a>
+                <a class="btn-action" href="../PagesHTML/register.html">Register</a>
+                <a class="btn-action" href="../PagesHTML/petitie.html">Creaza Petitie</a>
+                <a class="btn-action" href="../PagesHTML/despre.html">Despre</a>
+                <a class="btn-action" href="../PagesHTML/ajutor.html">Ajutor</a>
+            </div>
         </div>
     <div id=inner>
         <form action="#">
@@ -35,11 +35,26 @@
                 <label for="nume"><b>Titlu petitie</b></label>
                 <input type="text" placeholder="Introduceti un titlu sugestiv !" name="nume" id="nume" required>
 
+                <label for="data"><b>Data</b></label></br>
+                <input type="date" placeholder="" name="data" id="data" required></br>
+
                 <label for="autor"><b>Autorul petitiei</b></label>
                 <input type="text" placeholder="Introduceti numele dumneavostra." name="autor" id="autor" required>
 
-                <label for="pet-text"><b>Text</b></label>
+                <label for="dest"><b>Destination</b></label>
+                <input type="text" placeholder="Introduceti destinatia petitiei" name="dest" id="dest" required>
+
+                </br>
+                <label for="enddate"><b>End Date</b></label>
+                <br>
+                <input type="date" placeholder="" name="enddate" id="enddate" required>
+                </br>
+
+                <label for="pet-text"><b>Short Description</b></label>
                 <input type="text" placeholder="Introduceti textul petitei dumneavoastra. Maxim 1000 de caractere." name="pet-text" maxlength="1000" id="pet-text" required>
+
+                <label for="pet-text"><b>Full Description</b></label>
+                <input type="text" placeholder="Introduceti descrierea completa a petitei dumneavoastra. Maxim 5000 de caractere." name="fulltext" maxlength="5000" id="fulltext" required>
 
                 <div class="clearfix">
                     <button type="submit" id='creaza' class="signupbtn">Creeaza petitia!</button>

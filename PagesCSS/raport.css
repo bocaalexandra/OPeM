@@ -32,11 +32,12 @@ p,h3{
     padding-bottom: 2%;
 }
 
-#mod, #edit, #del {
+#mod, #del {
     background-color: #373F27;
     color: #E9E7DA;
     padding: 14px 20px;
     margin: 15px 0;
+    margin-left: 70px;
     border: none;
     cursor: pointer;
     width: 32%;

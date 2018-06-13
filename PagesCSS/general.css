@@ -66,13 +66,8 @@ body{
 }
 
 #reg {
-    margin-top: -60px;
-    margin-left: 75%;
-}
-
-#log {
-    margin-left: 90%;
-    margin-top: -50px;
+    /*margin-top: -60px;*/
+    margin-left: 50%;
 }
 
 
