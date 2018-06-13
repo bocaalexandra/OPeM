@@ -5,6 +5,8 @@ const path = require("path");
 let doLogin = require("./JavaScript/doLogin")
 let doRegister = require("./JavaScript/doRegister")
 let { creazaPetitie, deletePetitie, getPetitie, semneazaPetitie } = require("./JavaScript/petitieUtiliti")
+let {ordonateResult} = require("./JavaScript/ordonateResult")
+let {autorizareUtilizator} = requore("./JavaScript/verifyUser")
 
 const hostname = "localhost";
 const port = 3000;
@@ -80,12 +82,14 @@ const server = http.createServer((req, res) => {
         }
         else if (req.url === "/creazaPetitie") {
             get_data(req)
+                .then(checkLogin)
                 .then(creazaPetitie)
                 .then(sendResponse.bind(null, res))
                 .catch((err) => { console.log(err) })
         }
         else if (req.url === "/deletePetitie") {
             get_data(req)
+                .then(autorizareUtilizator)
                 .then(deletePetitie)
                 .then(sendResponse.bind(null, res))
                 .catch((err) => { console.log(err) })
@@ -96,9 +100,16 @@ const server = http.createServer((req, res) => {
                 .then(sendResponse.bind(null, res))
                 .catch((err) => { console.log(err) })
         }
-        else if(req.url === "/semneazaPetitie"){
+        else if (req.url === "/semneazaPetitie") {
             get_data(req)
+                .then(autorizareUtilizator)
                 .then(semneazaPetitie)
+                .then(sendResponse.bind(null, res))
+                .catch((err) => { console.log(err) })
+        }
+        else if (req.url === "/ordine") {
+            get_data(req)
+                .then(ordonateResult)
                 .then(sendResponse.bind(null, res))
                 .catch((err) => { console.log(err) })
         }
