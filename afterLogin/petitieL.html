@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <title>Online Petition Manager</title>
-        <link rel="stylesheet" href="../PagesCSS/ajutor.css" type="text/css">
+        <link rel="stylesheet" href="../PagesCSS/petitie.css" type="text/css">
         <link rel="stylesheet" href="../PagesCSS/generalL.css" type="text/css">
     </head>
 <body>
@@ -21,7 +21,7 @@
                 <a class="btn-action" href="../home.html">Log Out</a>
             </div>
         </div>
-    <div id=inner>
+   <div id=inner>
         <form action="#">
             <div class="container">
                 <h1>Creeaza o noua petitie !</h1>
@@ -34,20 +34,34 @@
                 <label for="nume"><b>Titlu petitie</b></label>
                 <input type="text" placeholder="Introduceti un titlu sugestiv !" name="nume" id="nume" required>
 
+                <label for="data"><b>Data</b></label></br>
+                <input type="date" placeholder="" name="data" id="data" required></br>
+
                 <label for="autor"><b>Autorul petitiei</b></label>
                 <input type="text" placeholder="Introduceti numele dumneavostra." name="autor" id="autor" required>
 
-                <label for="pet-text"><b>Text</b></label>
+                <label for="dest"><b>Destination</b></label>
+                <input type="text" placeholder="Introduceti destinatia petitiei" name="dest" id="dest" required>
+
+                </br>
+                <label for="enddate"><b>End Date</b></label>
+                <br>
+                <input type="date" placeholder="" name="enddate" id="enddate" required>
+                </br>
+
+                <label for="pet-text"><b>Short Description</b></label>
                 <input type="text" placeholder="Introduceti textul petitei dumneavoastra. Maxim 1000 de caractere." name="pet-text" maxlength="1000" id="pet-text" required>
 
+                <label for="pet-text"><b>Full Description</b></label>
+                <input type="text" cols="50" rows="30" placeholder="Introduceti descrierea completa a petitei dumneavoastra. Maxim 5000 de caractere." name="fulltext" maxlength="5000" id="fulltext" required>
+
                 <div class="clearfix">
-                    <button type="submit" class="signupbtn">Creeaza petitia!</button>
+                    <button type="submit" id='creaza' class="signupbtn">Creeaza petitia!</button>
                     <button type="button" class="cancelbtn">Anuleaza</button>
                 </div>
             </div>
         </form>
     </div>
-<!--</div>-->
 
 <!--***Footer**-->
 <div class="footer">
