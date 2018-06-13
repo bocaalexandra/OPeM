@@ -19,18 +19,12 @@ con.connect(function(err) {
     	});
     	created = true;
     }
-  
-  var sql = "ALTER TABLE users ADD UNIQUE (Email)";
-  con.query(sql, function (err, result) {
-     if (err) throw err;
-     console.log("Table altered!");
-   });
 
-  // var sql = "CREATE TABLE users (UserID int, FOREIGN KEY (UserID) REFERENCES users_data(ID) ON DELETE CASCADE, Email VARCHAR(50), Password VARCHAR(50))";
-  // con.query(sql, function (err, result) {
-  //   if (err) throw err;
-  //   console.log("Table created");
-  // });
+  var sql = "CREATE TABLE login_table (UserID int, FOREIGN KEY (UserID) REFERENCES users_data(ID), Token INT(32) UNIQUE)";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table created");
+  });
 
   // con.query("INSERT INTO users (UserID,Email,Password) values (1,'popescuion@gmail.com','1234567')", function (err, result, fields) {
   //  if (err) throw err;
