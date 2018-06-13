@@ -5,8 +5,8 @@ const path = require("path");
 let doLogin = require("./JavaScript/doLogin")
 let doRegister = require("./JavaScript/doRegister")
 let { creazaPetitie, deletePetitie, getPetitie, semneazaPetitie } = require("./JavaScript/petitieUtiliti")
-let {ordonateResult} = require("./JavaScript/ordonateResult")
-let {autorizareUtilizator} = requore("./JavaScript/verifyUser")
+let { ordonateResult } = require("./JavaScript/ordonateResult")
+let getSignature  = require("./JavaScript/getSignature")
 
 const hostname = "localhost";
 const port = 3000;
@@ -82,14 +82,12 @@ const server = http.createServer((req, res) => {
         }
         else if (req.url === "/creazaPetitie") {
             get_data(req)
-                .then(checkLogin)
                 .then(creazaPetitie)
                 .then(sendResponse.bind(null, res))
                 .catch((err) => { console.log(err) })
         }
         else if (req.url === "/deletePetitie") {
             get_data(req)
-                .then(autorizareUtilizator)
                 .then(deletePetitie)
                 .then(sendResponse.bind(null, res))
                 .catch((err) => { console.log(err) })
@@ -102,7 +100,6 @@ const server = http.createServer((req, res) => {
         }
         else if (req.url === "/semneazaPetitie") {
             get_data(req)
-                .then(autorizareUtilizator)
                 .then(semneazaPetitie)
                 .then(sendResponse.bind(null, res))
                 .catch((err) => { console.log(err) })
@@ -110,6 +107,12 @@ const server = http.createServer((req, res) => {
         else if (req.url === "/ordine") {
             get_data(req)
                 .then(ordonateResult)
+                .then(sendResponse.bind(null, res))
+                .catch((err) => { console.log(err) })
+        } else if (req.url === "/getSignature") {
+            console.log(getSignature)
+            get_data(req)
+                .then(getSignature)
                 .then(sendResponse.bind(null, res))
                 .catch((err) => { console.log(err) })
         }
@@ -160,6 +163,7 @@ function sendResponse(res, data) {
     else {
         res.statusCode = 200;
         res.setHeader("Content-type", "text/plain")
+        console.log(data)
         let output = JSON.stringify({
             response: "succes",
             message: JSON.parse(data)

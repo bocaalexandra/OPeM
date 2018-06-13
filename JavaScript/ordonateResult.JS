@@ -43,7 +43,7 @@ function petitiiPopulare() {
 
 function petitiiRecente() {
     return new Promise((resolve, reject) => {
-        let sql = "";
+        let sql = "SELECT * FROM `petitions` ORDER by Date DESC";
         db.query(sql,(err,result)=>{
             if(err) reject(err)
             resolve(JSON.stringify(result))

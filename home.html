@@ -1,135 +1,125 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta charset="UTF-8">
-	    <title>Online Petition Manager</title>
-	    <link rel="stylesheet" href="./PagesCSS/home.css" type="text/css">
-	    <link rel="stylesheet" href="./PagesCSS/general.css" type="text/css">
-	</head>
 
-	<body>
-		<!--***Header*** -->
-		<div class="header-container">
-			<div class="header-logo">
-				<h1><a href="http://localhost:3000/">OPeM</a></h1>
-		</div>
-		    <div class="btn-header">
-		        <a class="btn-action" href="http://localhost:3000/login.html"id="loginPage">Login</a>
-		        <a class="btn-action" href="http://localhost:3000/register.html">Register</a>
-		        <a class="btn-action" href="http://localhost:3000/creazaPetitie.html">Creaza Petitie</a>
-		        <a class="btn-action" href="http://localhost:3000/despre.html">Despre</a>
-		        <a class="btn-action" href="http://localhost:3000/ajutor.html">Ajutor</a>
-		    </div>
-		</div>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Online Petition Manager</title>
+	<script>
+		getPetitii()
+		function getPetitii() {
+			let obj = {
+				what: "all"
+			}
+			return sendRequestPetitii(obj)
+				.then(handleResponse)
+				.then(createTable)
+				.catch((err) => {
+					console.log(err)
+				})
+		}
 
-		<!--***Content***-->
-		<div class="cont">
-			<h1>Online Petition Manager</h1>
-			<h2>Nu-ti place ca ninge in martie? Creeaza o petitie! Schimba vremea!</h2>
-			<h3>Intr-o lumea a schimbarilor, schimba-ti viata! </h3>
-			<hr>
-			<div class="content-header">
-				<div class="search-container">
-    				<form action="home.html">
-      					<input type="text" placeholder="Search.." name="search">
-      					<button type="submit">Submit</button>
-    				</form>
-  				</div>
-				<a class="btn-actionH"  href="home.html">Cele mai populare petitii</a>
-				<a class="btn-actionH"  href="home.html">Cele mai recente petitii</a>
+		function sendRequestPetitii(obj) {
+			return fetch("http://localhost:3000/ordine", {
+				body: JSON.stringify(obj),
+				method: "POST",
+				headers: {
+					'content-type': 'application/json'
+				}
+			})
+		}
+
+		function handleResponse(resp) {
+			console.log(resp);
+			return resp.json()
+				.then(petitiiData => {
+					petitiiData.status = resp.status
+					return petitiiData
+				})
+				.catch(err => {
+					reject(err);
+				})
+		}
+
+		function createTable(petitii) {
+			obj = document.createElement('table')
+			obj.id = "createTable"
+			//document.getElementById('table').innerHTML = ''
+			obj.innerHTML = '<tr><th>Nume Petitie</th><th>Data Creari</th><th>Scurta descriere</th><th>Numar Semnaturi</th><th>Autor</th></tr>'
+			for (let i = 0; i < petitii.message.length; i++) {
+				let date = new Date(petitii.message[i].Date)
+				obj.innerHTML +=
+					'<tr>' +
+					'<td><a href="http://localhost:3000.">' + petitii.message[i].Title + '</a></td>' +
+					'<td>' + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + '</td>' +
+					'<td>' + petitii.message[i].Description + '</td>' +
+					'<td>305</td>' +
+					'<td>EMINESCU</td>' +
+					'</tr>'
+			}
+			console.log(obj)
+			document.getElementById('content-header').appendChild(obj)
+		}
+
+
+		function search() {
+			let obj = {
+				what: "search",
+				text: document.getElementById("search").value
+			}
+			console.log(obj)
+		}
+	</script>
+	<link rel="stylesheet" href="./PagesCSS/home.css" type="text/css">
+	<link rel="stylesheet" href="./PagesCSS/general.css" type="text/css">
+	<script type="text/javascript" src="./JavaScript/interactionHome.js"></script>
+
+</head>
+
+<body>
+	<!--***Header*** -->
+	<div class="header-container">
+		<div class="header-logo">
+			<h1>
+				<a href="http://localhost:3000/">OPeM</a>
+			</h1>
+		</div>
+		<div class="btn-header">
+			<a class="btn-action" href="http://localhost:3000/login.html" id="loginPage">Login</a>
+			<a class="btn-action" href="http://localhost:3000/register.html">Register</a>
+			<a class="btn-action" href="http://localhost:3000/creazaPetitie.html">Creaza Petitie</a>
+			<a class="btn-action" href="http://localhost:3000/despre.html">Despre</a>
+			<a class="btn-action" href="http://localhost:3000/ajutor.html">Ajutor</a>
+		</div>
+	</div>
+
+	<!--***Content***-->
+	<div class="cont">
+		<h1>Online Petition Manager</h1>
+		<h2>Nu-ti place ca ninge in martie? Creeaza o petitie! Schimba vremea!</h2>
+		<h3>Intr-o lumea a schimbarilor, schimba-ti viata! </h3>
+		<hr>
+		<div class="content-header" id="content-header">
+			<div class="search-container">
+				<form action="home.html">
+					<input type="text" placeholder="Search.." name="search" id="search">
+					<a class="btn-actionH" id="searchBtn">Submit</a>
+				</form>
 			</div>
-			<table>
-				  <tr>
-				    <th>Nume Petitie</th>
-				    <th>Data Creari</th>
-				    <th>Scurta descriere</th>
-				    <th>Numar Semnaturi</th>
-				    <th>Autor</th>
-				  </tr>
-				  <tr>
-				    <td><a href="./PagesHTML/info.html"> S.O.S. SANATATEA ROMANILOR!</a></td>
-				    <td>20/03/2018</td>
-				    <td>Semneaza petitia pentru construirea Spitalului Metropolitan intr-o zona care respecta standardele europene : in proximitatea aeroportului, a autostrazii, a statiei de metrou si de autobuz, cu retele de utilitati functionale.</td>
-				    <td>306</td>
-				    <td>Mihai Eminescu</td>
-				  </tr>
-				  <tr>
-				     <td><a href="./PagesHTML/info.html"> S.O.S. SANATATEA ROMANILOR!</a></td>
-				    <td>20/03/2018</td>
-				    <td>Semneaza petitia pentru construirea Spitalului Metropolitan intr-o zona care respecta standardele europene : in proximitatea aeroportului, a autostrazii, a statiei de metrou si de autobuz, cu retele de utilitati functionale.</td>
-				    <td>306</td>
-				    <td>Mihai Eminescu</td>
-				  </tr>
-				  <tr>
-				    <td><a href="./PagesHTML/info.html"> S.O.S. SANATATEA ROMANILOR!</a></td>
-				    <td>20/03/2018</td>
-				    <td>Semneaza petitia pentru construirea Spitalului Metropolitan intr-o zona care respecta standardele europene : in proximitatea aeroportului, a autostrazii, a statiei de metrou si de autobuz, cu retele de utilitati functionale.</td>
-				    <td>306</td>
-				    <td>Mihai Eminescu</td>
-				  </tr>
-				  <tr>
-				    <td><a href="./PagesHTML/info.html"> S.O.S. SANATATEA ROMANILOR!</a></td>
-				    <td>20/03/2018</td>
-				    <td>Semneaza petitia pentru construirea Spitalului Metropolitan intr-o zona care respecta standardele europene : in proximitatea aeroportului, a autostrazii, a statiei de metrou si de autobuz, cu retele de utilitati functionale.</td>
-				    <td>306</td>
-				    <td>Mihai Eminescu</td>
-				  </tr>
-				  <tr>
-				     <td><a href="./PagesHTML/info.html"> S.O.S. SANATATEA ROMANILOR!</a></td>
-				    <td>20/03/2018</td>
-				    <td>Semneaza petitia pentru construirea Spitalului Metropolitan intr-o zona care respecta standardele europene : in proximitatea aeroportului, a autostrazii, a statiei de metrou si de autobuz, cu retele de utilitati functionale.</td>
-				    <td>306</td>
-				    <td>Mihai Eminescu</td>
-				  </tr>
-				  <tr>
-				     <td><a href="./PagesHTML/info.html"> S.O.S. SANATATEA ROMANILOR!</a></td>
-				    <td>20/03/2018</td>
-				    <td>Semneaza petitia pentru construirea Spitalului Metropolitan intr-o zona care respecta standardele europene : in proximitatea aeroportului, a autostrazii, a statiei de metrou si de autobuz, cu retele de utilitati functionale.</td>
-				    <td>306</td>
-				    <td>Mihai Eminescu</td>
-				  </tr>
-				  <tr>
-				     <td><a href="./PagesHTML/info.html"> S.O.S. SANATATEA ROMANILOR!</a></td>
-				    <td>20/03/2018</td>
-				    <td>Semneaza petitia pentru construirea Spitalului Metropolitan intr-o zona care respecta standardele europene : in proximitatea aeroportului, a autostrazii, a statiei de metrou si de autobuz, cu retele de utilitati functionale.</td>
-				    <td>306</td>
-				    <td>Mihai Eminescu</td>
-				  </tr>
-				  <tr>
-				     <td><a href="./PagesHTML/info.html"> S.O.S. SANATATEA ROMANILOR!</a></td>
-				    <td>20/03/2018</td>
-				    <td>Semneaza petitia pentru construirea Spitalului Metropolitan intr-o zona care respecta standardele europene : in proximitatea aeroportului, a autostrazii, a statiei de metrou si de autobuz, cu retele de utilitati functionale.</td>
-				    <td>306</td>
-				    <td>Mihai Eminescu</td>
-				  </tr>
-				  <tr>
-				     <td><a href="./PagesHTML/info.html"> S.O.S. SANATATEA ROMANILOR!</a></td>
-				    <td>20/03/2018</td>
-				    <td>Semneaza petitia pentru construirea Spitalului Metropolitan intr-o zona care respecta standardele europene : in proximitatea aeroportului, a autostrazii, a statiei de metrou si de autobuz, cu retele de utilitati functionale.</td>
-				    <td>306</td>
-				    <td>Mihai Eminescu</td>
-				  </tr>
-				 
-
-			</table>
-		<div class="pagination">
-		  	<a href="#">&laquo;</a>
-		  	<a href="#">1</a>
-		  	<a class="active" href="#">2</a>
-		  	<a href="#">3</a>
-		  	<a href="#">4</a>
-		  	<a href="#">5</a>
-		  	<a href="#">6</a>
-		  	<a href="#">&raquo;</a>
-		</div>
+			<form action="home.html">
+				<a class="btn-actionH" id="petitiiPopulare">Cele mai populare petitii</a>
+				<a class="btn-actionH" id="petitiiRecente">Cele mai recente petitii</a>
+			</form>
 
 		</div>
-		
 
-		<!--***Footer**-->
-		<div class="footer">
-		    &copy; 2018 OPeM TW Project. All Rights Reserved.
-		</div>
-	</body>
+	</div>
+
+
+	<!--***Footer**-->
+	<div class="footer">
+		&copy; 2018 OPeM TW Project. All Rights Reserved.
+	</div>
+</body>
+
 </html>

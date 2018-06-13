@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		login(document.getElementById('email').value, document.getElementById('psw').value)
 			.then((data) => {
 				if (data.status === 200) {
-					window.location = "http://localhost:3000/" + data.userId;
+					window.location = "http://localhost:3000/";
 				}
 				else {
 					if(firstLogin)
@@ -43,7 +43,7 @@ function sendRequestLogin(obj) {
 		body: JSON.stringify(obj),
 		method: 'POST',
 		headers: {
-			'content-type': 'application/json',
+			'content-type': 'application/json'
 		}
 	})
 }
