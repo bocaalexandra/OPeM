@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+		Scholarly
+    </title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<center><h1>OpeM</h1></center>
+<center><h3>Boca Eleonora Alexandra</h3></center>
+<center><h3>Clim Andrei</h3></center>
+
+<h3><b>1.Introducere</b></h3>
+<p>Scopul aplicatiei web este de a permite utilizatorilor sa creeze si sa gestioneze petitii online. Va putea avea de asemenea acces la un raport pdf cu ultimele date actualizate ale petitiei in format pdf (data crearii, numar de senaturi pana in acel moment, autorul petitei, destinatarul acesteia, starea petitiei si data acesteia de expirare). 
+Utilizatorul va putea cauta in petitii dupa un anumit cuvant sau sa le ordoneze in functie de popularitate sau cele mai recent adaugate.
+</p>
+
+<h3><b>Utilizatorul înregistrat</b></h3>
+Se va putea loga in aplicatie cu ajutorul emailului si parolei. I se va atribui un token cu ajutorul caruia va putea ramane logat.<br>
+După ce s-a logat, utilizatorul va avea urmatoarele optiuni: <br>
+      ->Sa descarce un raport pdf privind datele petitiei mentionate in paragraful de mai sus, in format pdf.<br>
+      ->Sa isi vada propriile petitii.<br>
+      ->Sa stearga una sau mai multe petitii din cele create de el.<br>
+      ->Petitiile semnate de el.<br>
+      ->Sa creeze o noua petitie<br>
+
+<h3><b>Utilizator fără cont</b></h3>
+Utilizatorul fără cont va putea accesa paginile Home, Ajutor, Despre si Register, va putea vedea petitiile din acel moment insa nu va putea semna sau crea propria petitie decat daca isi va crea un cont.
+
+<h3><b>Administratorul</b></h3>
+Va avea acces la datele tutoror petitiilor, raport, avand in plus optiunea de a sterge orice petite(in cazul in care aceasta nu respecta normele).
+
+<h3><b>2.Etapele dezvoltarii proiectului</b></h3>
+1.	Prototipul.<br>
+2.	Arhitectura. <br>
+3.  Backend.<br>
+
+<h3><b>3.Tehnologii</b></h3>
+
+Proiectul utilizează următoarele tehnologii:<br>
+    <br>
+    1.HTML5<br>
+    <br>
+    2.CSS<br>
+    <br>
+    3.Javascript<br>
+    <br>
+    4.NodeJS<br>
+
+<h3><b>4.MySQL</b></h3>
+
+Tabele folosite:<br>
+    <br>
+    details_petition(PetID, Destination, EndDate, FullDescription)<br>
+    login_table(UserID,Token)<br>
+    petitions(PetitionID,UserID,Date,Title,Description)<br>
+    signatures(PetID,UserID,Date,Location)<br>
+    users(UserID,Email,Password)<br>
+    users_data(ID,FirstName,LastName,Email,DateOfBirth,PhoneNumber,admin_check)<br>
+
+<h3><b>5.Structura</b></h3>
+
+->Pagina de pornire:<br>
+<br>
+•	Contine un tabel cu petitiile actuale, de unde se vor putea accesa paginile cu detaliile petitiilor accesand linkul din prima coloana a tabelului.
+• Este disponibila functia search, care cauta in petitii dupa un anumit cuvant.
+• Sunt disponibile butoanele: Cele mai recente petitii si Cele  mai populare petitii.
+<br>
+<br>
+
+->Pagina de creeaza o noua petitie:<br>
+<br>
+•	Daca este logat, dupa introducerea datelor cerute utlizatorul va putea crea o noua petitie.<br>
+<br>
+
+->Pagina de informatii despre petitie:<br>
+<br>
+• Sunt oferite informatii despre starea unei petitii precum cele mentionate si mai sus(data_expirare,destinatar,autor, etc.)
+<br>
+<br>
+
+->Pagina Despre:<br>
+<br>
+• Sunt specificate cerinta proiectului, profesul coordonator si numele persoanelor din echipa.
+<br>
+<br>
+
+->Pagina Ajutor:<br>
+<br>
+• Va fi disponibil un filmulet cu instructiuni despre folosirea aplicatiei web.
+<br>
+<br>
+
+</body>
+</html>
