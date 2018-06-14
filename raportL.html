@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Online Petition Manager</title>
+        <link rel="stylesheet" href="../PagesCSS/raport.css" type="text/css">
+        <link rel="stylesheet" href="../PagesCSS/generalL.css" type="text/css">
+        <script type="text/javascript" src="pdf_raport.js"></script>
+        <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="jquery-ui-1.8.17.custom.min.js"></script>
+        <script type="text/javascript" src="jspdf.debug.js"></script>
+    </head>
+<body>
+
+<div class="header-container">
+            <div class="header-logo">
+                <h1><a href="./homeL.html">OPeM</a></h1>
+            </div>
+            <div class="btn-header">
+                <h3>andreiclim20</h3>
+                <a class="btn-action" href="petitieL.html">Creaza Petitie</a>
+                <a class="btn-action" href="./despreL.html">Despre</a>
+                <a class="btn-action" href="./ajutorL.html">Ajutor</a>
+                <a class="btn-action" href="../home.html">Log Out</a>
+            </div>
+        </div>
+
+
+<div class="first">
+
+<h3 id="titlu">TITLU : S.O.S. SANATATEA ROMANILOR!</h3>
+<hr>
+<h3 id="creare">DATA CREARII : 20/03/2018</h3>
+<hr>
+<h3 id="desc">DESCRIERE : Semneaza petitia pentru construirea Spitalului Metropolitan intr-o zona care respecta standardele europene : in proximitatea aeroportului, a autostrazii, a statiei de metrou si de autobuz, cu retele de utilitati functionale.</h3>
+<hr>
+<h3 id="nr">NUMAR SEMNATURI : 306</h3>
+<hr>
+<h3 id="autor">AUTOR : Mihai Eminescu</h3>
+
+</div>
+
+
+
+<div class="second">
+
+            <table>
+                  <tr>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                    <th>Data semnaturii</th>
+                    <th>Locatie</th>
+                  </tr>
+                  <tr>
+                    <td>Boca</td>
+                    <td>Alexandra</td>
+                    <td>20/03/2018</td>
+                    <td>Galati</td>
+                  </tr>
+                  <tr>
+                    <td>Clim</td>
+                    <td>Andrei</td>
+                    <td>21.03.2018</td>
+                    <td>Iasi</td>
+                  </tr>
+                  <tr>
+                    <td>Popescu</td>
+                    <td>Mihaela</td>
+                    <td>22.03.2018</td>
+                    <td>Suceava</td>
+                  </tr>
+            </table>
+
+            <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a class="active" href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+            </div>
+    
+        <h4 id="dest">DESTINATAR: Guvernul Romaniei</h4><br><br>
+        <h4 id="stare">STAREA PETITIEI: 306/1000</h4><br><br>
+        <h4 id="exp">DATA EXPIRARE: 01.06.2018</h4><br><br>
+        <button id="mod" onclick="demoPDF()">GENEREAZA RAPORT</button>
+        <button type="submit" id="del">STERGE</button>
+    
+
+</div>
+
+<div class="footer">
+        &copy; 2018 OPeM TW Project. All Rights Reserved.
+</div>
+
+</body>
+</html>
